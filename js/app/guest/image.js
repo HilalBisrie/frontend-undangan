@@ -18,6 +18,35 @@ export const image = (() => {
      */
     const urlCache = [];
 
+    const randomGallery = () => {
+
+    const photos = [
+        "./assets/images/IMG_0143.JPG",
+        "./assets/images/IMG_0146.JPG",
+        "./assets/images/IMG_0147.JPG",
+        "./assets/images/IMG_0149.JPG",
+        "./assets/images/IMG_0157.JPG",
+        "./assets/images/IMG_9201.JPG",
+        "./assets/images/IMG_9215.JPG",
+        "./assets/images/IMG_9227.JPG",
+        "./assets/images/IMG_9247.JPG",
+        "./assets/images/IMG_9254.JPG",
+        "./assets/images/IMG_9256.JPG",
+        "./assets/images/IMG_0169.JPG"
+    ];
+
+    // Acak urutan foto
+    const shuffled = [...photos].sort(() => Math.random() - 0.5);
+
+    // Cari semua gambar yang ingin diacak
+    const targets = document.querySelectorAll(".gallery-random");
+
+    targets.forEach((img, index) => {
+        if (shuffled[index]) {
+            img.dataset.src = shuffled[index];
+        }
+    });
+};
     /**
      * @param {string} src 
      * @returns {Promise<HTMLImageElement>}
@@ -81,8 +110,11 @@ export const image = (() => {
     /**
      * @returns {boolean}
      */
-    const hasDataSrc = () => Array.from(images).some((i) => i.hasAttribute('data-src'));
-
+    const hasDataSrc = () =>     
+        Array.from(images).some((i) => {
+        const src = i.getAttribute('data-src');
+        return src && src.trim() !== '';
+    });
     /**
      * @returns {Promise<void>}
      */
@@ -95,7 +127,15 @@ export const image = (() => {
          */
         const runGroup = async (filter) => {
             urlCache.length = 0;
-            imgs.filter(filter).forEach((el) => el.hasAttribute('data-src') ? getByFetch(el) : getByDefault(el));
+            imgs.filter(filter).forEach((el) => {
+            const dataSrc = el.getAttribute('data-src');
+
+            if (dataSrc && dataSrc.trim() !== '') {
+                getByFetch(el);
+            } else {
+                getByDefault(el);
+            }
+            });
             await c.run(urlCache, progress.getAbort());
         };
 
@@ -116,6 +156,7 @@ export const image = (() => {
      */
     const init = () => {
         c = cache('image').withForceCache();
+        randomGallery();
         images = document.querySelectorAll('img');
         images.forEach(progress.add);
 

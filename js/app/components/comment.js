@@ -36,8 +36,8 @@ export const comment = (() => {
      */
     const onNullComment = () => {
         const desc = lang
-            .on('id', '📢 Yuk, share undangan ini biar makin rame komentarnya! 🎉')
-            .on('en', '📢 Let\'s share this invitation to get more comments! 🎉')
+            .on('id', '📢 Kalian bisa mengirimkan ucapan & doa untuk kedua mempelai melalui komentar loh!❤️')
+            .on('en', '📢 You can leave your wishes and prayers for the happy couple in the comments!❤️')
             .get();
 
         return `<div class="text-center p-4 mx-0 mt-0 mb-3 bg-theme-auto rounded-4 shadow"><p class="fw-bold p-0 m-0" style="font-size: 0.95rem;">${desc}</p></div>`;
