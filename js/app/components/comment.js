@@ -36,7 +36,7 @@ export const comment = (() => {
      */
     const onNullComment = () => {
         const desc = lang
-            .on('id', '📢 Kalian bisa mengirimkan ucapan & doa untuk kedua mempelai melalui komentar loh!❤️')
+            .on('id', '📢 Kalian bisa mengirimkan ucapan & doa untuk kedua mempelai melalui komentar!❤️')
             .on('en', '📢 You can leave your wishes and prayers for the happy couple in the comments!❤️')
             .get();
 
