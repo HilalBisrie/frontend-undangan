@@ -21,18 +21,15 @@ export const image = (() => {
     const randomGallery = () => {
 
     const photos = [
-        "./assets/images/IMG_0143.JPG",
-        "./assets/images/IMG_0146.JPG",
-        "./assets/images/IMG_0147.JPG",
-        "./assets/images/IMG_0149.JPG",
-        "./assets/images/IMG_0157.JPG",
-        "./assets/images/IMG_9201.JPG",
-        "./assets/images/IMG_9215.JPG",
-        "./assets/images/IMG_9227.JPG",
-        "./assets/images/IMG_9247.JPG",
-        "./assets/images/IMG_9254.JPG",
-        "./assets/images/IMG_9256.JPG",
-        "./assets/images/IMG_0169.JPG"
+        "./assets/images/IMG_1.webp",
+        "./assets/images/IMG_2.webp",
+        "./assets/images/IMG_3.webp",
+        "./assets/images/IMG_4.webp",
+        "./assets/images/IMG_5.webp",
+        "./assets/images/IMG_6.webp",
+        "./assets/images/IMG_7.webp",
+        "./assets/images/IMG_8.webp",
+        "./assets/images/IMG_9.webp"
     ];
 
     // Acak urutan foto
